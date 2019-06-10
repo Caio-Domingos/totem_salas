@@ -1,14 +1,73 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      <ng-container *ngIf="point === 0">
+        Salas - Pitágoras
+      </ng-container>
+      <ng-container *ngIf="point === 1">
+        {{ jsonS[classroom].curso }} - Períodos
+      </ng-container>
+      <ng-container *ngIf="point === 2">
+        {{ jsonS[classroom].curso }} - Salas
+      </ng-container>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-list>
+      <ng-container *ngIf="point === 0">
+        <ion-item *ngFor="let turmas of jsonS; let it = index">
+          <ion-card (click)="next(it)">
+            <ion-card-header>
+              <ion-card-title class="text-center">{{
+                turmas.curso
+              }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-item>
+      </ng-container>
+      <ng-container *ngIf="point === 1">
+        <ion-item
+          *ngFor="let periodo of jsonS[classroom].periodos; let ip = index"
+        >
+          <ion-card (click)="next(ip)">
+            <ion-card-header>
+              <ion-card-title class="text-center">{{
+                periodo.name
+              }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-item>
+      </ng-container>
+      <ng-container *ngIf="point === 2">
+        <ion-item
+          *ngFor="let salas of jsonS[classroom].periodos[period].cursos_salas"
+        >
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle class="text-center">{{
+                salas.dia
+              }}</ion-card-subtitle>
+              <ion-card-subtitle class="text-center">{{
+                salas.curso
+              }}</ion-card-subtitle>
+              <ion-card-title class="text-center">{{
+                salas.sala
+              }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-item>
+      </ng-container>
+    </ion-list>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="point > 0">
+    <ion-fab-button (click)="back()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-footer>
