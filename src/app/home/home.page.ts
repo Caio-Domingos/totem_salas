@@ -1,10 +1,10 @@
-import { jsonSalas } from './../../files/csvformatted';
-import { Component } from '@angular/core';
+import { jsonSalas } from "./../../files/csvformatted";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  selector: "app-home",
+  templateUrl: "home.page.html",
+  styleUrls: ["home.page.scss"]
 })
 export class HomePage {
   jsonS = jsonSalas;
@@ -42,15 +42,17 @@ export class HomePage {
   }
 
   next(index: number) {
-    if (this.point === 0) {
-      this.point = 1;
-      this.setClassroom(index);
-      return;
-    } else if (this.point === 1) {
-      this.point = 2;
-      this.setPeriod(index);
-      return;
-    }
+    setTimeout(() => {
+      if (this.point === 0) {
+        this.point = 1;
+        this.setClassroom(index);
+        return;
+      } else if (this.point === 1) {
+        this.point = 2;
+        this.setPeriod(index);
+        return;
+      }
+    }, 500);
   }
 
   back() {

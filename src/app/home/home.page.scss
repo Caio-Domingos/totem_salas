@@ -1,3 +1,62 @@
+.control-height {
+  min-height: 100vh;
+}
+
+.color-pitagoras {
+  --background: #f5821f;
+}
+
+.space-p {
+  padding: 15px;
+  color: white;
+}
+
 .text-center {
   text-align: center;
+}
+
+.row-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.itens1 {
+  width: 45%;
+  height: 250px;
+  margin: 0;
+}
+.itens2 {
+  width: 30%;
+  height: 200px;
+  margin: 0;
+}
+
+.fullcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle-font {
+  font-size: 14px;
+}
+
+.double-font {
+  font-size: 2rem;
+}
+
+.triple-font {
+  font-size: 2.5rem;
+}
+
+.cards {
+  width: 100%;
+  height: 200px;
+  --background: #a6abb5;
+}
+
+.cards-period {
+  height: 150px;
 }

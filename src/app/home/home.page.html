@@ -1,6 +1,6 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
+<ion-header class="color-pitagoras">
+  <ion-toolbar class="space-p color-pitagoras">
+    <ion-title class="double-font">
       <ng-container *ngIf="point === 0">
         Salas - Pitágoras
       </ng-container>
@@ -16,12 +16,13 @@
 
 <ion-content>
   <div class="ion-padding">
-    <ion-list>
+    <ion-list class="row-wrap">
       <ng-container *ngIf="point === 0">
-        <ion-item *ngFor="let turmas of jsonS; let it = index">
-          <ion-card (click)="next(it)">
+        <ion-item class="itens1" *ngFor="let turmas of jsonS; let it = index">
+          <ion-card ion-activatable class="ion-activatable cards fullcenter" (click)="next(it)">
+            <ion-ripple-effect></ion-ripple-effect>
             <ion-card-header>
-              <ion-card-title class="text-center">{{
+              <ion-card-title class="double-font text-center">{{
                 turmas.curso
               }}</ion-card-title>
             </ion-card-header>
@@ -30,11 +31,13 @@
       </ng-container>
       <ng-container *ngIf="point === 1">
         <ion-item
+          class="itens2"
           *ngFor="let periodo of jsonS[classroom].periodos; let ip = index"
         >
-          <ion-card (click)="next(ip)">
+          <ion-card ion-activatable class="ion-activatable cards fullcenter cards-period" (click)="next(ip)">
+            <ion-ripple-effect></ion-ripple-effect>
             <ion-card-header>
-              <ion-card-title class="text-center">{{
+              <ion-card-title class="triple-font text-center">{{
                 periodo.name
               }}</ion-card-title>
             </ion-card-header>
@@ -43,11 +46,13 @@
       </ng-container>
       <ng-container *ngIf="point === 2">
         <ion-item
+          class="itens1"
           *ngFor="let salas of jsonS[classroom].periodos[period].cursos_salas"
         >
-          <ion-card>
+          <ion-card ion-activatable class="ion-activatable cards fullcenter ">
+            <ion-ripple-effect></ion-ripple-effect>
             <ion-card-header>
-              <ion-card-subtitle class="text-center">{{
+              <ion-card-subtitle class="text-center middle-font">{{
                 salas.dia
               }}</ion-card-subtitle>
               <ion-card-subtitle class="text-center">{{
@@ -66,7 +71,7 @@
 
 <ion-footer>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="point > 0">
-    <ion-fab-button (click)="back()">
+    <ion-fab-button class="color-pitagoras" (click)="back()">
       <ion-icon name="arrow-back"></ion-icon>
     </ion-fab-button>
   </ion-fab>
