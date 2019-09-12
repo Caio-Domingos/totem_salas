@@ -1,0 +1,10 @@
+.card {
+  flex-direction: column;
+  min-width: 30%;
+  ion-card-content {
+    align-self: flex-start;
+    p {
+      font-size: 1.3rem;
+    }
+  }
+}

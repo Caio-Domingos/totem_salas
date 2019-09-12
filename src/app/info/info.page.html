@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar class="pitagoras-color">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Horários
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="cards-box">
+    <ion-card class="ion-activatable card" *ngFor="let item of infos">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-card-header>
+        <ion-card-title>{{ item }}</ion-card-title>
+      </ion-card-header>
+          <ion-card-content>
+            <p>Sala 1: {{periodJson[item].sala1 ? periodJson[item].sala1 : '-' }}</p>
+            <p>Aula 1: {{periodJson[item].aula1 ? periodJson[item].aula1 : '-' }}</p>
+            <p>Prof 1: {{periodJson[item].prof1 ? periodJson[item].prof1 : '-' }}</p>
+            <p>Sala 2: {{periodJson[item].sala2 ? periodJson[item].sala2 : '-' }}</p>
+            <p>Aula 2: {{periodJson[item].aula2 ? periodJson[item].aula2 : '-' }}</p>
+            <p>Prof 2: {{periodJson[item].prof2 ? periodJson[item].prof2 : '-' }}</p>
+          </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

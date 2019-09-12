@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="pitagoras-color">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Cursos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="cards-box">
+    <ion-card
+      class="ion-activatable card"
+      *ngFor="let item of coursesName"
+      (click)="goTo(item)"
+    >
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-card-header>
+        <ion-card-title>{{ item }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>
